@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from "lit";
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
 class DashboardSearch extends LitElement {
   static properties = {
@@ -71,4 +71,4 @@ class DashboardSearch extends LitElement {
   }
 }
 
-customElements.define('dashboard-search', DashboardSearch);
+customElements.define("dashboard-search", DashboardSearch);
