@@ -5,82 +5,68 @@ const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 class DashboardSearch extends LitElement {
   static properties = {
     header: { type: String },
+    cards: {type: Array},
+    heading: {type: String},
+    title: {type: String},
+    authorTitle: {type: String},
+    imageLink: {type: String},
+
   }
 
-  static styles = css`
-    :host {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: calc(10px + 2vmin);
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      background-color: var(--dashboard-search-background-color);
-    }
-
-    main {
-      flex-grow: 1;
-    }
-
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
+  static get styles(){
+    return css`
+      .card {
+        text-align: center;
+        border: 5px solid navy;
+        padding: 10px 10px 10px 10px;
+        width: 300px;
+        height: 150px;
+        background-color: white;
+        display: flex;
+        float: left;
+        display: block;
+        box-shadow: 0px 0px 5px black;
       }
-      to {
-        transform: rotate(360deg);
+      .image {
+        padding: 10px 10px 10px 10px;
+        width: 450px;
+        margin: 0px auto;
       }
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
-
-    .app-footer a {
-      margin-left: 5px;
-    }
-  `;
+      .heading{
+        margin: 50px;
+      }
+      @media (min-width: 500px) and (max-width: 800px) {
+        button {
+          opacity: 0;
+          display: none;
+        }
+      }
+      @media (max-width: 500px) {
+        div {
+          font-size: 10px;
+          image-resolution: auto;
+        }
+      }
+  `};
 
   constructor() {
     super();
     this.header = 'My app';
+    this.heading = null
+    this.title = null
+    this.authorTitle = null
+    this.imageLink = null
   }
 
   render() {
     return html`
-      <main>
-        <div class="logo"><img alt="open-wc logo" src=${logo} /></div>
-        <h1>${this.header}</h1>
+      <div class="card">
+         <h3 class="heading">${this.heading}</h3>
+         <h1 class="title">${this.title}</h1>
+         <h4 class="authorTitle">${this.authorTitle}</h4> </h4>
+         <a class="imageLink" href="">${this.imageLink}</a>
+      </div> 
 
-        <p>Edit <code>src/DashboardSearch.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
-      </main>
-
-      <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p>
     `;
   }
 }
