@@ -52,10 +52,10 @@ class DashboardSearch extends LitElement {
   constructor() {
     super();
     this.header = 'My app';
-    this.heading = null
-    this.title = null
-    this.authorTitle = null
-    this.imageLink = null
+    this.heading = "test";
+    this.title = "test";
+    this.authorTitle = "test";
+    this.imageLink = "test";
   }
 
   render() {
@@ -64,9 +64,8 @@ class DashboardSearch extends LitElement {
          <h3 class="heading">${this.heading}</h3>
          <h1 class="title">${this.title}</h1>
          <h4 class="authorTitle">${this.authorTitle}</h4> </h4>
-         <a class="imageLink" href="">${this.imageLink}</a>
+         <a class="imageLink" href="${this.imageLink}"></a>
       </div> 
-
     `;
   }
 }
