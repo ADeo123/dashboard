@@ -22,15 +22,21 @@
       </p>
       <form>
         <label for="search">Search:</label>
-        <input type="text" id="search" name="search">
+        <input type="text" id="search" name="search" />
         <button type="submit">Go</button>
-    </form>
+      </form>
       <section>
         <h3>Featured Badges</h3>
         <ul>
-          <li><a href="#">Badge 1</a></li>
-          <li><a href="#">Badge 2</a></li>
-          <li><a href="#">Badge 3</a></li>
+          <div class="card">
+            <h2>My Heading</h2>
+            <h3>Title</h3>
+            <p>By Author Title</p>
+            <img
+              src="https://badgesapp.psu.edu/uploads/badge/image/692/icon125-color15.png"
+              alt="Image Description"
+            />
+          </div>
         </ul>
       </section>
     </main>
@@ -42,110 +48,156 @@
 
 <style>
   /* Global Styles */
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  background-color: #f7f7f7; /* Changed the background color to a slightly lighter shade */
-}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f7f7f7; /* Changed the background color to a slightly lighter shade */
+  }
 
-  <style>
-    html,
-    .card {
-      margin: 20;
-      padding: 0;
-      font-family: 'Courier New', Courier, monospace;
-      background-color: white;
-    }
+  html,
+  .card {
+    margin: 20px; /* Added px unit */
+    padding: 0;
+    font-family: "Courier New", Courier, monospace;
+    background-color: white;
+  }
 
-  </style>
-  <title>dashboard-search</title>
-</head>
+  h1 {
+    margin: 0;
+    font-size: 2.5rem; /* Increased the font size of the heading */
+  }
 
-h1 {
-  margin: 0;
-  font-size: 2.5rem; /* Increased the font size of the heading */
-}
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+  nav ul li {
+    margin-right: 1.5rem; /* Increased the margin between list items */
+  }
 
-nav ul li {
-  margin-right: 1.5rem; /* Increased the margin between list items */
-}
+  nav ul li a {
+    color: #fff; /* Changed the text color to white */
+    text-decoration: none;
+    font-weight: bold; /* Added bold font weight */
+    background-color: gray; /* Added a background color */
+  }
 
-nav ul li a {
-  color: #fff; /* Changed the text color to white */
-  text-decoration: none;
-  font-weight: bold; /* Added bold font weight */
-}
+  /* Main Content Styles */
+  main {
+    padding: 1rem;
+  }
 
-/* Main Content Styles */
-main {
-  padding: 1rem;
-}
+  section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box-shadow effect */
+  }
 
-section {
-  margin-bottom: 2rem;
-  background-color: #fff;
-  padding: 1em;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box-shadow effect */
-}
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem; /* Increased the margin below the heading */
+  }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem; /* Increased the margin below the heading */
-}
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; /* Increased the margin below the heading */
+  }
 
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem; /* Increased the margin below the heading */
-}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  li a {
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 0.5rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+    border-radius: 5px; /* Added rounded corners to the links */
+  }
 
-li a {
-  color: #333;
-  text-decoration: none;
-  border: 1px solid #333;
-  padding: 0.5rem;
-  display: inline-block;
-  margin-right: 0.5rem;
-  border-radius: 5px; /* Added rounded corners to the links */
-}
+  li a:hover {
+    background-color: #333; /* Changed the background color on hover */
+    color: #fff; /* Changed the text color on hover */
+  }
 
-li a:hover {
-  background-color: #333; /* Changed the background color on hover */
-  color: #fff; /* Changed the text color on hover */
-}
+  /* Search form styles */
+  form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem; /* Increased the margin below the search form */
+  }
 
-/* Search form styles */
-form {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem; /* Increased the margin below the search form */
-}
+  label {
+    margin-right: 1rem;
+  }
 
-label {
-  margin-right: 1rem;
-}
+  input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid #333;
+    margin-right: 1rem;
+    font-size: 1rem;
+    outline: none;
+  }
+  .card {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 250px;
+    height: 135px;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0097a7;
+    border-radius: 10px;
+    z-index: -1;
+  }
 
-input[type="text"] {
-  padding: 0.5rem;
-  border: none;
-  border-bottom: 2px solid #333;
-  margin-right: 1rem;
-  font-size: 1rem;
-  outline: none;
-}
+  .card h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+    float: left;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    margin: 0;
+    float: left;
+  }
+
+  .card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .card img {
+    max-width: 60px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
 </style>
