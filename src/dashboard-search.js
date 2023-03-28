@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
 
-const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
-class DashboardSearch extends LitElement {
+
+export class DashboardSearch extends LitElement {
   static properties = {
     header: { type: String },
     cards: { type: Array },
