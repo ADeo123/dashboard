@@ -5,6 +5,7 @@ const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 export class DashboardSearch extends LitElement {
   static properties = {
     header: { type: String },
+    cards: { type: Array },
     heading: { type: String },
     title: { type: String },
     authorTitle: { type: String },
