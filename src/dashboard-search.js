@@ -73,31 +73,6 @@ export class DashboardSearch extends LitElement {
     this.imageLink = "test";
   }
 
-  toggleEvent(e) {
-    var state =
-      this.shadowRoot.querySelector("details").getAttribute("open") === ""
-        ? true
-        : false;
-    this.opened = state;
-  }
-
-  updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === "opened") {
-        this.dispatchEvent(
-          new CustomEvent("opened-changed", {
-            composed: true,
-            bubbles: true,
-            cancelable: false,
-            detail: {
-              value: this[propName],
-            },
-          })
-        );
-        console.log(`${propName} changed. oldValue: ${oldValue}`);
-      }
-    });
-  }
 
   render() {
     return html`
