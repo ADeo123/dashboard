@@ -2,70 +2,117 @@ import { LitElement, html, css } from "lit";
 
 const logo = new URL("../assets/open-wc-logo.svg", import.meta.url).href;
 
-class DashboardSearch extends LitElement {
+export class DashboardSearch extends LitElement {
   static properties = {
     header: { type: String },
-    cards: {type: Array},
-    heading: {type: String},
-    title: {type: String},
-    authorTitle: {type: String},
-    imageLink: {type: String},
+    cards: { type: Array },
+    heading: { type: String },
+    title: { type: String },
+    authorTitle: { type: String },
+    imageLink: { type: String },
+  };
 
-  }
-
-  static get styles(){
+  static get styles() {
     return css`
-      .card {
+      .wrapper {
+        background-color: lightgray;
+        color: white;
+        padding: 2px 2px 2px 20px;
         text-align: center;
-        border: 5px solid navy;
-        padding: 10px 10px 10px 10px;
-        width: 300px;
-        height: 150px;
+        width: 400px;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .badgeTitle {
+        background-color: lightblue;
+        color: white;
+        padding: 10px 8px;
+        text-align: left;
+        border-radius: 5px;
+        color: black;
+      }
+      .badgeBody {
         background-color: white;
-        display: flex;
-        float: left;
-        display: block;
-        box-shadow: 0px 0px 5px black;
+        color: black;
+        text-align: left;
+        padding: 2px 2px 2px 5px;
+        font-size: 20px;
       }
-      .image {
-        padding: 10px 10px 10px 10px;
-        width: 450px;
-        margin: 0px auto;
+      .author {
+        background-color: white;
+        text-align: left;
+        color: black;
+        padding: 2px 2px 2px 5px;
       }
-      .heading{
-        margin: 50px;
+      .img {
+        text-align: right;
+        background-color: white;
       }
-      @media (min-width: 500px) and (max-width: 800px) {
-        button {
-          opacity: 0;
-          display: none;
-        }
+      .tblock {
+        color: black;
+        padding: 12px 20px 15px 20px;
+        background-color: grey;
+        margin: 25px;
       }
-      @media (max-width: 500px) {
-        div {
-          font-size: 10px;
-          image-resolution: auto;
-        }
+      .bblock {
+        color: black;
+        padding: 12px 20px 15px 20px;
+        background-color: grey;
+        margin: 25px;
       }
-  `};
+    `;
+  }
 
   constructor() {
     super();
-    this.header = 'My app';
+    this.header = "My app";
     this.heading = "test";
     this.title = "test";
     this.authorTitle = "test";
     this.imageLink = "test";
   }
 
+  toggleEvent(e) {
+    var state =
+      this.shadowRoot.querySelector("details").getAttribute("open") === ""
+        ? true
+        : false;
+    this.opened = state;
+  }
+
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === "opened") {
+        this.dispatchEvent(
+          new CustomEvent("opened-changed", {
+            composed: true,
+            bubbles: true,
+            cancelable: false,
+            detail: {
+              value: this[propName],
+            },
+          })
+        );
+        console.log(`${propName} changed. oldValue: ${oldValue}`);
+      }
+    });
+  }
+
   render() {
     return html`
-      <div class="card">
-         <h3 class="heading">${this.heading}</h3>
-         <h1 class="title">${this.title}</h1>
-         <h4 class="authorTitle">${this.authorTitle}</h4> </h4>
-         <a class="imageLink" href="${this.imageLink}"></a>
-      </div> 
+      <div class="wrapper">
+        <div class="badgeTitle">Technology & information</div>
+        <div class="badgeBody">APA Style Citations: Introduction</div>
+        <div class="img">
+          <img
+            src="https://badgesapp.psu.edu/uploads/badge/image/337/APA_Style.png"
+            width="100"
+            height="100"
+          />
+        </div>
+        <div class="author">Creator: Andrew Morrison</div>
+      </div>
     `;
   }
 }
