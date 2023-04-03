@@ -1,7 +1,5 @@
 import { LitElement, html, css } from "lit";
 
-
-
 export class DashboardSearch extends LitElement {
   static properties = {
     header: { type: String },
@@ -9,7 +7,8 @@ export class DashboardSearch extends LitElement {
     heading: { type: String },
     title: { type: String },
     authorTitle: { type: String },
-    imageLink: { type: String },
+    iconColor: { type: String },
+    iconName: { type: String },
   };
 
   static get styles() {
@@ -70,23 +69,20 @@ export class DashboardSearch extends LitElement {
     this.heading = "test";
     this.title = "test";
     this.authorTitle = "test";
-    this.imageLink = "test";
+    this.iconColor = "blue";
+    this.iconName = "assignment"
   }
-
 
   render() {
     return html`
       <div class="wrapper">
-        <div class="badgeTitle">Technology & information</div>
-        <div class="badgeBody">APA Style Citations: Introduction</div>
+        <div class="badgeTitle">${this.heading}</div>
+        <div class="badgeBody">${this.title}</div>
         <div class="img">
-          <img
-            src="https://badgesapp.psu.edu/uploads/badge/image/337/APA_Style.png"
-            width="100"
-            height="100"
-          />
+          <simple-icon accent-color="${this.iconColor}" icon="${this.iconName}">
+          </simple-icon>
         </div>
-        <div class="author">Creator: Andrew Morrison</div>
+        <div class="author">${this.authorTitle}</div>
       </div>
     `;
   }
