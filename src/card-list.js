@@ -7,7 +7,8 @@ export class cardList extends LitElement {
     static get properties () {
         return {
           cards: {type: Array},
-          cardList: {type: String}
+          cardList: {type: String},
+          userInput: {type: String}
       } 
 }
 
@@ -16,9 +17,10 @@ export class cardList extends LitElement {
         this.cards = [];
         this.cardList = 'Badge Card List';
         this.updateList();
+        this.userInput = document.querySelector("search").addEventListener(enter)
     }
 
-    //AD
+    
     updateList(){
         console.log("test");
         const address = new URL('../assets/list.json',import.meta.url).href;
@@ -33,6 +35,16 @@ export class cardList extends LitElement {
         });
     }
 
+    searchList(){
+        for(var i = 0; i < cardList.length; i++){
+            if(userInput === cardList[i]){
+                document.querySelector(this.userInput)
+            }else{
+                return -1; 
+            }
+        }
+        
+    }
 
     static get styles(){
         return css`
