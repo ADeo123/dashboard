@@ -21,10 +21,10 @@ export class DashboardSearch extends LitElement {
         padding: 2px 2px 2px 20px;
         text-align: center;
         width: 400px;
-        height: auto;
+        height: 200px;
         border-radius: 5px;
       }
-
+  
       .badgeTitle {
         background-color: lightblue;
         color: white;
@@ -33,34 +33,46 @@ export class DashboardSearch extends LitElement {
         border-radius: 5px;
         color: black;
       }
+  
       .badgeBody {
         background-color: white;
         color: black;
         text-align: left;
-        padding: 2px 2px 2px 5px;
+        padding: 5px 2px;
         font-size: 20px;
       }
+  
       .author {
         background-color: white;
         text-align: left;
         color: black;
         padding: 2px 2px 2px 5px;
+        padding-bottom: 75px;
       }
+  
       .img {
         text-align: right;
         background-color: white;
       }
+  
       .tblock {
         color: black;
         padding: 12px 20px 15px 20px;
         background-color: grey;
         margin: 25px;
       }
+  
       .bblock {
         color: black;
         padding: 12px 20px 15px 20px;
         background-color: grey;
         margin: 25px;
+      }
+      simple-icon {
+          display: inline-block;
+          float: right;
+          padding-right: 10px;
+          padding-bottom: 10px;
       }
     `;
   }
@@ -68,11 +80,11 @@ export class DashboardSearch extends LitElement {
   constructor() {
     super();
     this.header = "My app";
-    this.heading = "test";
-    this.title = "test";
-    this.authorTitle = "test";
-    this.iconColor = "blue";
-    this.iconName = "assignment"
+    this.heading = "New Recipe";
+    this.title = "Spaghetti Carbonara";
+    this.authorTitle = "By John Smith";
+    this.iconColor = "green";
+    this.iconName = "places:kitchen";
   }
 
   render() {
@@ -81,7 +93,7 @@ export class DashboardSearch extends LitElement {
         <div class="badgeTitle">${this.heading}</div>
         <div class="badgeBody">${this.title}</div>
         <div class="img">
-          <simple-icon accent-color="${this.iconColor}" icon="${this.iconName}">
+          <simple-icon accent-color="${this.iconColor}" icon="${this.iconName}" style="--simple-icon-width:100px;--simple-icon-height:100px;">
           </simple-icon>
         </div>
         <div class="author">${this.authorTitle}</div>
