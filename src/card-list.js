@@ -34,6 +34,21 @@ export class cardList extends LitElement {
             this.cards = data;
         });
     }
+    
+    searchThis(items, searchForThis){
+        return items.filter((thing) => 
+        {
+          for (var item in thing)
+          {
+            if (thing[item].toString().toLowerCase().includes(searchForThis.toLowerCase()))
+            {
+              return true;
+            }
+          }
+          return false;
+        });
+    }
+
 
     static get styles(){
         return css`
