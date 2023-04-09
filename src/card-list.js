@@ -24,7 +24,7 @@ export class cardList extends LitElement {
     updateList(){
         console.log("test");
         const address = new URL('../assets/list.json',import.meta.url).href;
-        const data = fetch(address).then((response) => {
+        fetch(address).then((response) => {
             if(response.ok){
                 return response.json()
             }
@@ -33,17 +33,6 @@ export class cardList extends LitElement {
         .then((data) =>{
             this.cards = data;
         });
-    }
-
-    searchList(){
-        for(var i = 0; i < cardList.length; i++){
-            if(userInput === cardList[i]){
-                document.querySelector(this.userInput)
-            }else{
-                return -1; 
-            }
-        }
-        
     }
 
     static get styles(){
@@ -61,7 +50,7 @@ export class cardList extends LitElement {
     `;
     }
 
-
+//<dashboard-search> make sure to change the different fields to fit the scope of the project 
     render(){
         return html`
         <h2>${this.cardList}</h2>
