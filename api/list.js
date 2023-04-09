@@ -2,68 +2,89 @@ import { cardList } from "../src/card-list";
 
 export default async function handler(request, res) {
     console.log(request.query.search.toLowerCase());
+    
     var list = [
-    {
-      "heading":"Technology & Information",
-      "title":"APA Style Citations",
-      "authorTitle":"Victoria Raish",
-      "imageLink": ""
-  },
-  {
-      "heading":"Professional Skills",
-      "title":"IST Careers Meet a Coach level 2",
-      "authorTitle":"Rita Griffith",
-      "imageLink": ""
-  },
-  {
-      "heading":"Agriculture & Natural Resources",
-      "title":"[test] Treat Yourself",
-      "authorTitle":"James Wilson",
-      "imageLink": "badge1Image"
-  },
-  {
-      "heading":"Technology & Information",
-      "title":"Savvy Searcher: Recognizing Bias",
-      "authorTitle":"Emily Rimland",
-      "imageLink": ""
-  },
-  {
-      "heading":"Professional Skills",
-      "title":"5 Steps to Improve Resume",
-      "authorTitle":"Anderson Kalbach",
-      "imageLink": "badge1Image"
-  },
-  {
-      "heading":"Technology & Information",
-      "title":"SQL Level 1",
-      "authorTitle":"Steve Mason",
-      "imageLink": ""
-  },
-  {
-      "heading":"Agriculture & Natural Resources",
-      "title":"Best Ways to Reduce Waste",
-      "authorTitle":"Cameron Miles",
-      "imageLink": "badge1Image"
-  },
-  {
-      "heading":"Professional Skills",
-      "title":"Best Interview Skills",
-      "authorTitle":"Miles Bradley",
-      "imageLink": "badge1Image"
-  },
-  {
-      "heading":"Financial Literacy",
-      "title":"Best Ways to Track Spending",
-      "authorTitle":"John Fisher",
-      "imageLink": "badge1Image"
-  },
-  {
-      "heading":"Financial Literacy",
-      "title":"Managing Investments",
-      "authorTitle":"Micheal Smith",
-      "imageLink": ""
-  }
-  ];
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Spaghetti Carbonara",
+        "authorTitle": "By John Smith",
+        "iconColor": "green",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Beef Stroganoff",
+        "authorTitle": "By Sarah Lee",
+        "iconColor": "red",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Pad Thai",
+        "authorTitle": "By Alex Wong",
+        "iconColor": "purple",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Chicken Alfredo",
+        "authorTitle": "By Samantha Kim",
+        "iconColor": "blue",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Salmon Teriyaki",
+        "authorTitle": "By Mike Chen",
+        "iconColor": "orange",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Lemon Chicken",
+        "authorTitle": "By Emily Chen",
+        "iconColor": "green",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Beef and Broccoli",
+        "authorTitle": "By Jason Lee",
+        "iconColor": "yellow",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Fish Tacos",
+        "authorTitle": "By Juan Perez",
+        "iconColor": "teal",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Vegan Curry",
+        "authorTitle": "By Maria Rodriguez",
+        "iconColor": "pink",
+        "iconName": "places:kitchen"
+      },
+      {
+        "header": "My app",
+        "heading": "New Recipe",
+        "title": "Tomato Soup",
+        "authorTitle": "By James Smith",
+        "iconColor": "brown",
+        "iconName": "places:kitchen"
+      }
+    ];
 
   //What we are going to be comparing our search result to 
   list.map((card) =>{
