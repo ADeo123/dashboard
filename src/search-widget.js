@@ -14,8 +14,8 @@ export class SearchWidget extends LitElement {
       }
       simple-icon{
         display: inline block;
-        --simple-icon-height: 24px;
-        --simple-icon-width: 24px;
+        --simple-icon-height: 40px;
+        --simple-icon-width: 40px;
       }
     `;
   }
@@ -34,6 +34,7 @@ export class SearchWidget extends LitElement {
   
   _handleInput(e){
     this.value = e.targetValue;
+    console.log(this.value);
     this.dispatchEvent(new CustomerEvent('search', {
         detail: this.value,
     }));

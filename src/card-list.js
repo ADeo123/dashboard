@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import "./dashboard-search.js";
+import "./search-widget.js";
 
 export class cardList extends LitElement {
     static get tag() { return 'card-list'; }
@@ -8,7 +9,6 @@ export class cardList extends LitElement {
         return {
           cards: {type: Array},
           cardList: {type: String},
-          userInput: {type: String}
       } 
 }
 
@@ -16,23 +16,6 @@ export class cardList extends LitElement {
         super();
         this.cards = [];
         this.cardList = 'Badge Card List';
-        this.updateList();
-        this.userInput = document.querySelector("search").addEventListener(enter)
-    }
-
-    
-    updateList(){
-        console.log("test");
-        const address = new URL('../assets/list.json',import.meta.url).href;
-        fetch(address).then((response) => {
-            if(response.ok){
-                return response.json()
-            }
-            return[];
-        })
-        .then((data) =>{
-            this.cards = data;
-        });
     }
 
     static get styles(){
@@ -50,15 +33,35 @@ export class cardList extends LitElement {
     `;
     }
 
+    async getSearchResults(value){
+        const address = `/api/list?search=${value}`;
+        const results = await fetch(address).then((response)=> {
+            if(response.ok){
+                return response.json()
+            }
+            return [];
+        })
+        .then((data)=>{
+            return data;
+        });
+        return results; 
+    }
+
+    async _handleSearchEvent(e){
+        const searchTerm = e.detail.value; 
+        this.cards = await this.getSearchResults(searchTerm);
+    }
+
 //<dashboard-search> make sure to change the different fields to fit the scope of the project 
     render(){
         return html`
         <h2>${this.cardList}</h2>
+        <search-widget @value-changed="${this._handleSearchEvent}"></search-widget>
         <div class="wrapper">
             <h1>${this.cardList}</h1>
             <div class="item">
                 ${this.cards.map((card) => html`
-                <dashboard-search image="${card.image}" title="${card.title}" subTitle="${card.subTitle}" memeTopText="${card.memeTopText}" memeBottomText="${card.memeBottomText}"></logo-card2>
+                <dashboard-search image="${card.image}" title="${card.title}" authorTitle="${card.authorTitle}" heading="${card.heading}" iconColor="${card.iconColor}" iconName="${card.iconName}"></dashboard-search>
                 `)}
             </div>
         </div>
