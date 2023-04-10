@@ -74,8 +74,8 @@ export class cardList extends LitElement {
         <search-widget @value-changed="${this._handleSearchEvent}"></search-widget>
         <div class="wrapper">
             <h1>${this.cardList}</h1>
-            <div class="item">
                 ${this.cards.map((card) => html`
+                <div class="item">
                 <dashboard-search image="${card.image}" title="${card.title}" authorTitle="${card.authorTitle}" heading="${card.heading}" iconColor="${card.iconColor}" iconName="${card.iconName}"></dashboard-search>
                 `)}
             </div>
