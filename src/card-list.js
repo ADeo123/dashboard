@@ -94,7 +94,7 @@ export class cardList extends LitElement {
             "iconColor": "brown",
             "iconName": "places:kitchen"
           }];
-        this.cardList = 'Badge Card List';
+        this.cardList = '';
         this.getSearchResults().then((data) => {
             this.cards = data;
         });
