@@ -18,6 +18,9 @@ export class cardList extends LitElement {
             
         ];
         this.cardList = 'Badge Card List';
+        this.getSearchResults().then((results) => {
+            this.cards = results;
+        });
     }
     
     searchThis(items, searchForThis){
