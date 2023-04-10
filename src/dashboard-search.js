@@ -92,9 +92,7 @@ export class DashboardSearch extends LitElement {
       <div class="wrapper">
         <div class="badgeTitle">${this.heading}</div>
         <div class="badgeBody">${this.title}</div>
-        <div class="img">
-          <simple-icon accent-color="${this.iconColor}" icon="${this.iconName}" style="--simple-icon-width:100px;--simple-icon-height:100px;">
-          </simple-icon>
+          <simple-icon accent-color="${this.iconColor}" icon="${this.iconName}" style="--simple-icon-width:100px;--simple-icon-height:100px;"> </simple-icon>
         </div>
         <div class="author">${this.authorTitle}</div>
       </div>

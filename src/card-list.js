@@ -101,18 +101,18 @@ export class cardList extends LitElement {
     }
     
     searchThis(items, searchForThis){
-        return items.filter((thing) => 
+      return items.filter((thing) => 
+      {
+        for (var item in thing)
         {
-          for (var item in thing)
+          if (thing[item].toString().toLowerCase().includes(searchForThis.toLowerCase()))
           {
-            if (thing[item].toString().toLowerCase().includes(searchForThis.toLowerCase()))
-            {
-              return true;
-            }
+            return true;
           }
-          return false;
-        });
-    }
+        }
+        return false;
+      });
+  }
 
 
     static get styles(){
@@ -158,7 +158,7 @@ export class cardList extends LitElement {
             <h1>${this.cardList}</h1>
                 ${this.cards.map((card) => html`
                 <div class="item">
-                <dashboard-search image="${card.image}" title="${card.title}" authorTitle="${card.authorTitle}" heading="${card.heading}" iconColor="${card.iconColor}" iconName="${card.iconName}"></dashboard-search>
+                <dashboard-search title="${card.title}" authorTitle="${card.authorTitle}" heading="${card.heading}" iconColor="${card.iconColor}" iconName="${card.iconName}"></dashboard-search>
                 `)}
             </div>
         </div>

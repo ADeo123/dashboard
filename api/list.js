@@ -85,10 +85,10 @@ export default async function handler(request, res) {
     }
   ];
 
-  badgeList.map((card) => {
+  list.map((card) => {
     card.index = card.heading.toLowerCase() + " " + card.title.toLowerCase() + " " + card.authorTitle.toLowerCase();
   });
-  badgeList = badgeList.filter((card) => {
+  list = badgeList.filter((card) => {
     return card.index.indexOf(search.toLowerCase()) > -1;
   });
   console.log(badgeList);
