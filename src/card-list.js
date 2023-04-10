@@ -95,26 +95,11 @@ export class cardList extends LitElement {
             "iconName": "places:kitchen"
           }];
         this.cardList = 'Badge Card List';
-        this.getSearchResults().then((results) => {
-            this.cards = results;
+        this.getSearchResults().then((data) => {
+            this.cards = data;
         });
     }
     
-    searchThis(items, searchForThis){
-      return items.filter((thing) => 
-      {
-        for (var item in thing)
-        {
-          if (thing[item].toString().toLowerCase().includes(searchForThis.toLowerCase()))
-          {
-            return true;
-          }
-        }
-        return false;
-      });
-  }
-
-
     static get styles(){
         return css`
         :host{
@@ -130,7 +115,7 @@ export class cardList extends LitElement {
     `;
     }
 
-    async getSearchResults(value){
+    async getSearchResults(value = ' '){
         const address = `/api/list?search=${value}`;
         const results = await fetch(address).then((response)=> {
             if(response.ok){
@@ -152,7 +137,6 @@ export class cardList extends LitElement {
 //<dashboard-search> make sure to change the different fields to fit the scope of the project 
     render(){
         return html`
-        <h2>${this.cardList}</h2>
         <search-widget @value-changed="${this._handleSearchEvent}"></search-widget>
         <div class="wrapper">
             <h1>${this.cardList}</h1>
