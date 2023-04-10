@@ -14,7 +14,9 @@ export class cardList extends LitElement {
 
     constructor(){
         super();
-        this.cards = [];
+        this.cards = [
+            
+        ];
         this.cardList = 'Badge Card List';
     }
     
