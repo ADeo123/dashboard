@@ -15,6 +15,12 @@ export class DashboardSearch extends LitElement {
 
   static get styles() {
     return css`
+        
+        :host([accent-color="lightgray"]) .badgeBody {
+        background-color: var(--badge-card-accent-color, lightgray);
+        color: lightgray;
+      }
+    
       .wrapper {
         background-color: lightgray;
         color: white;
@@ -24,7 +30,7 @@ export class DashboardSearch extends LitElement {
         height: 200px;
         border-radius: 5px;
       }
-  
+
       .badgeTitle {
         background-color: lightblue;
         color: white;
@@ -33,7 +39,7 @@ export class DashboardSearch extends LitElement {
         border-radius: 5px;
         color: black;
       }
-  
+
       .badgeBody {
         background-color: white;
         color: black;
@@ -41,7 +47,7 @@ export class DashboardSearch extends LitElement {
         padding: 5px 2px;
         font-size: 20px;
       }
-  
+
       .author {
         background-color: white;
         text-align: left;
@@ -49,19 +55,19 @@ export class DashboardSearch extends LitElement {
         padding: 2px 2px 2px 5px;
         padding-bottom: 75px;
       }
-  
+
       .img {
         text-align: right;
         background-color: white;
       }
-  
+
       .tblock {
         color: black;
         padding: 12px 20px 15px 20px;
         background-color: grey;
         margin: 25px;
       }
-  
+
       .bblock {
         color: black;
         padding: 12px 20px 15px 20px;
@@ -69,10 +75,10 @@ export class DashboardSearch extends LitElement {
         margin: 25px;
       }
       simple-icon {
-          display: inline-block;
-          float: right;
-          padding-right: 10px;
-          padding-bottom: 10px;
+        display: inline-block;
+        float: right;
+        padding-right: 10px;
+        padding-bottom: 10px;
       }
     `;
   }

@@ -134,7 +134,6 @@ export class cardList extends LitElement {
         this.cards = await this.getSearchResults(searchTerm);
     }
 
-//<dashboard-search> make sure to change the different fields to fit the scope of the project 
     render(){
         return html`
         <search-widget @value-changed="${this._handleSearchEvent}"></search-widget>
@@ -149,4 +148,4 @@ export class cardList extends LitElement {
         `;
     }
 }
-customElements.define(cardList.tag, cardList);
+customElements.define("card-list", cardList);
